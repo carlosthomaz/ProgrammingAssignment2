@@ -8,22 +8,28 @@ makeCacheMatrix <- function(x = matrix()) {
   ## set method simply gets the argument y, which  has been 
   ## has been passed to makeCacheMatrix as argument x
   ## and store it into a temp var also called x
-  set <- function(y){
+  set <- function(y) {
     x <<- y
     c_matrix <<- NULL
   }
   
   ## get method simply returns the value of x, assigned on set function
   ## this will always return the original matrix (not inversed)
-  get <- function() x
+  get <- function() {
+    x  
+  } 
   
   ## setmatrix method pass the function solve (matrix inversion) as argument
   ## and attributes to c_matrix variable initialized above
   ## in this context the c_matrix is now a function
-  setmatrix <- function(solve) c_matrix <<- solve
+  setmatrix <- function(solve) {
+    c_matrix <<- solve
+  }
   
   ## getmatrix method returns the inverse matrix
-  getmatrix <- function() c_matrix
+  getmatrix <- function() {
+    c_matrix
+  }
   
   ## this defines a list of methods
   ## my_obj$get, e.g., wil return the original matrix
@@ -35,7 +41,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   
   ## in this line c_matrix is assigned with, in fact, the matrix passed 
   ## as argument for makeCacheMatrix
